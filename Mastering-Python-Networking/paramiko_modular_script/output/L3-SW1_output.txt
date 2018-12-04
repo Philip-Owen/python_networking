@@ -1,0 +1,6 @@
+terminal length 0
+L3-SW1#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+L3-SW1(config)#logging buffered 30000
+L3-SW1(config)#end
+L3-SW1#copy run start

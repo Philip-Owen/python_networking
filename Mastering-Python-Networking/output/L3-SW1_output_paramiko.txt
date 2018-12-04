@@ -1,0 +1,266 @@
+terminal length 0
+L3-SW1#show version
+Cisco IOS Software, C3560 Software (C3560-IPBASEK9-M), Version 12.2(50)SE1, RELEASE SOFTWARE (fc2)
+Copyright (c) 1986-2009 by Cisco Systems, Inc.
+Compiled Mon 06-Apr-09 08:00 by amvarma
+Image text-base: 0x00003000, data-base: 0x01900000
+
+ROM: Bootstrap program is C3560 boot loader
+BOOTLDR: C3560 Boot Loader (C3560-HBOOT-M) Version 12.2(44)SE5, RELEASE SOFTWARE (fc1)
+
+L3-SW1 uptime is 58 minutes
+System returned to ROM by power-on
+System image file is "flash:c3560-ipbasek9-mz.122-50.SE1.bin"
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+cisco WS-C3560-24TS (PowerPC405) processor (revision E0) with 122880K/8184K bytes of memory.
+Processor board ID CAT1117ZKWD
+Last reset from power-on
+1 Virtual Ethernet interface
+24 FastEthernet interfaces
+2 Gigabit Ethernet interfaces
+The password-recovery mechanism is enabled.
+
+512K bytes of flash-simulated non-volatile configuration memory.
+Base ethernet MAC Address       : 00:1C:0E:58:8A:80
+Motherboard assembly number     : 73-9897-06
+Power supply part number        : 341-0097-02
+Motherboard serial number       : CAT11175B97
+Power supply serial number      : DCA1113816C
+Model revision number           : E0
+Motherboard revision number     : B0
+Model number                    : WS-C3560-24TS-S
+System serial number            : CAT1117ZKWD
+Top Assembly Part Number        : 800-26160-02
+Top Assembly Revision Number    : E0
+Version ID                      : V02
+CLEI Code Number                : COMMG00ARB
+Hardware Board Revision Number  : 0x01
+
+
+Switch Ports Model              SW Version            SW Image                 
+------ ----- -----              ----------            ----------               
+*    1 26    WS-C3560-24TS      12.2(50)SE1           C3560-IPBASEK9-M         
+
+
+Configuration register is 0xF
+
+L3-SW1#show run
+Building configuration...
+
+Current configuration : 4482 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname L3-SW1
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$B.FP$cHyD6ZFDF.DyoVnpA7owX.
+!
+username phil privilege 15 secret 5 $1$cRlM$MnMIGNrzxZ1wZEjvn4RsZ.
+no aaa new-model
+system mtu routing 1500
+ip subnet-zero
+no ip domain-lookup
+ip domain-name testlab.com
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-240683648
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-240683648
+ revocation-check none
+ rsakeypair TP-self-signed-240683648
+!
+!
+crypto pki certificate chain TP-self-signed-240683648
+ certificate self-signed 01
+  30820248 308201B1 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 32343036 38333634 38301E17 0D393330 33303130 30303035 
+  355A170D 32303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F 
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3234 30363833 
+  36343830 819F300D 06092A86 4886F70D 01010105 0003818D 00308189 02818100 
+  D2F94254 A3641CB1 0373270C 96285985 1223F75B 9CF90273 EE54172B B1103CF1 
+  A2C12FD3 AFBC2086 3266DE90 376F4A29 37F997F7 8D4E9F6A E8377608 C34C786D 
+  503C3C7E 43894C5F D1B2813E B2CE1478 69E324A3 69943963 91B010EF 6F6A315C 
+  294046FE 79BDD4E2 C97D617C 470AFE2A 945D4BB2 DDDAD28C 89D88DF4 C384311D 
+  02030100 01A37230 70300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 
+  11041630 1482124C 332D5357 312E7465 73746C61 622E636F 6D301F06 03551D23 
+  04183016 801499FD 73250B57 1B312368 AB12E8E5 53CDC80C 254D301D 0603551D 
+  0E041604 1499FD73 250B571B 312368AB 12E8E553 CDC80C25 4D300D06 092A8648 
+  86F70D01 01040500 03818100 741845D4 90594792 4C01CC90 0EE57A67 0EFF21A9 
+  A1DF95C6 F9E77E85 14633634 2D0983F2 F25CCC39 79319F8B 1A49CA09 8F535859 
+  2377ED4B 5BA45C52 B2CA3C3B F548C6A8 054DD13A 4C5526AA 12BE7522 CBB282D5 
+  40804EEF 4F850DD4 7C4EFE27 F0601072 9B68805F F0FE7E99 BAB56A3D D5C826F8 
+  6B4F8A99 C44E4F02 B880C23A
+  quit
+!
+!
+!
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree etherchannel guard misconfig
+spanning-tree extend system-id
+spanning-tree vlan 1 priority 4096
+!
+vlan internal allocation policy ascending
+!
+ip ssh version 2
+!
+!
+interface FastEthernet0/1
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/2
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/3
+ switchport access vlan 30
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/4
+ switchport access vlan 30
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/5
+ switchport access vlan 30
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/6
+ switchport access vlan 30
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/7
+ switchport access vlan 31
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/8
+ switchport access vlan 31
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/9
+ switchport access vlan 31
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/10
+ switchport access vlan 31
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/11
+ switchport access vlan 31
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/12
+ switchport access vlan 31
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/13
+ shutdown
+!
+interface FastEthernet0/14
+ shutdown
+!
+interface FastEthernet0/15
+ shutdown
+!
+interface FastEthernet0/16
+ shutdown
+!
+interface FastEthernet0/17
+ shutdown
+!
+interface FastEthernet0/18
+ shutdown
+!
+interface FastEthernet0/19
+ shutdown
+!
+interface FastEthernet0/20
+ shutdown
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+ shutdown
+!
+interface FastEthernet0/23
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 55
+ switchport mode trunk
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+ shutdown
+!
+interface GigabitEthernet0/2
+ shutdown
+!
+interface Vlan1
+ ip address 10.25.1.10 255.255.255.0
+!
+ip classless
+ip http server
+ip http secure-server
+!
+snmp-server group PRTG v3 priv read MONITORING 
+snmp-server view MONITORING iso included
+snmp-server community SecretNuggets RO
+!
+control-plane
+!
+banner login ^C
+******************************************
+**  Unauthorized access is prohibited.  **
+******************************************
+^C
+!
+line con 0
+ logging synchronous
+ login local
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login
+!
+end
+
+L3-SW1#
